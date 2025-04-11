@@ -39,7 +39,8 @@ const Header = () => {
           </div>
 
           {/* mail, telefon */}
-          {/* <div className="flex pr-8">
+          {/*
+          <div className="flex pr-8">
             <div className="flex items-center">
               <FontAwesomeIcon
                 icon={faEnvelope}
@@ -72,9 +73,11 @@ const Header = () => {
         <div className="bg-[url('/header.jpg')] bg-cover relative bg-center py-56 text-center items-center justify-center flex flex-col">
           <div className="absolute inset-0 bg-black/30 backdrop-blur-xs"></div>
           <div className="relative z-10">
-          <p className="text-white max-w-2xl text-[38px] sm:text-[45px] md:text-[65px] lg:text-[80px] font-main lg:font-extrabold font-medium">
-            Remida bútor
-          </p>
+            <div className="bg-white/80 w-full absolute top-0 py-px"></div>
+            <p className="text-white text-[38px] sm:text-[45px] md:text-[65px] lg:text-[60px] font-main font-medium">
+              Remida Kárpitos Műhely
+            </p>
+            <div className="bg-white/80 w-full absolute bottom-0 py-px"></div>
           </div>
         </div>
       </div>
