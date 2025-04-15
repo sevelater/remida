@@ -10,7 +10,6 @@ import {
   faTiktok,
   faYoutube,
 } from "@fortawesome/free-brands-svg-icons";
-// import { faEnvelope } from "@fortawesome/free-solid-svg-icons";
 import { links } from "../consts";
 
 function Navbar() {
@@ -74,39 +73,20 @@ function Navbar() {
         className="fixed left-0 w-full z-50 justify-items-center"
       >
         {/* Desktop navbar */}
-        <div className="hidden custom:flex justify-center items-center px-6 xl:px-12 py-6 w-full rounded-md backdrop-blur-md">
-          <ul className="flex gap-4 xl:gap-6 items-center">
+        <div className="hidden custom:flex justify-center items-center px-6 xl:px-12 py-5 w-full rounded-md backdrop-blur-md">
+          <ul className="flex gap-4 xl:gap-10 items-center">
             {links.map((link) => (
               <li
                 key={link.href}
-                className="relative group tracking-wider font-medium"
-                style={{
-                  position: "relative",
-                  ...(pathname === link.href && {
-                    textDecoration: "underline",
-                    textUnderlineOffset: "4px",
-                  }),
-                }}
-                onMouseEnter={(e) => {
-                  const after = e.currentTarget.querySelector(
-                    "span::after"
-                  ) as HTMLElement;
-                  if (after) after.style.width = "100%";
-                }}
-                onMouseLeave={(e) => {
-                  const after = e.currentTarget.querySelector(
-                    "span::after"
-                  ) as HTMLElement;
-                  if (after && pathname !== link.href) after.style.width = "0";
-                }}
+                className={`relative group tracking-wider font-medium ${
+                  pathname === link.href ? "text-yellow-400" : ""
+                }`}
+                style={{ position: "relative" }}
               >
                 <Link href={link.href}>
                   <motion.span
-                    className="text-white text-lg px-4 py-2 relative z-10 transition-all duration-200 ease-in-out"
-                    style={{
-                      position: "relative",
-                      display: "inline-block",
-                    }}
+                    className="text-white text-lg px-0.5 py-1 relative z-10 transition-all duration-200 ease-in-out inline-block"
+                    style={{ position: "relative", display: "inline-block" }}
                   >
                     {link.text}
                     <span
@@ -114,8 +94,7 @@ function Navbar() {
                         content: '""',
                         position: "absolute",
                         bottom: "0",
-                        left: "10%",
-                        width: pathname === link.href ? "100%" : "0",
+                        width: "0",
                         height: "2px",
                         backgroundColor: "white",
                         transition: "width 0.3s ease-in-out",
@@ -128,9 +107,9 @@ function Navbar() {
             ))}
           </ul>
 
-          {/* <div id="line" className="py-10 h-6 bg-[#c8c8c8]/50 mx-5"></div> */}
+          <div id="line" className="p-px py-6 mx-8 bg-[#c8c8c8]/50"></div>
 
-          <div className="flex items-center gap-5 ml-10">
+          <div className="flex items-center gap-5">
             <a
               href="https://facebook.com"
               target="_blank"
@@ -191,22 +170,16 @@ function Navbar() {
           <div className="custom:hidden fixed inset-0 bg-transparent z-40">
             <div
               ref={menuRef}
-              className="fixed top-0 right-0 h-full w-64 bg-[#a08e5f] bg-opacity-30 backdrop-blur-md border-l shadow-lg flex items-center justify-center transition-all duration-300"
+              className="fixed top-0 right-0 h-full w-64 bg-[#efefef] bg-opacity-30 backdrop-blur-xl border-l shadow-lg flex items-center justify-center transition-all duration-300"
             >
               <ul className="grid text-white text-md w-full gap-y-4 pt-10 text-center items-center tracking-wider font-main">
                 {links.map((link) => (
-                  <li
-                    key={link.href}
-                    style={{
-                      ...(pathname === link.href && {
-                        textDecoration: "underline",
-                        textUnderlineOffset: "4px",
-                      }),
-                    }}
-                  >
+                  <li key={link.href}>
                     <Link
                       href={link.href}
-                      className="block p-2 hover:text-[#c5b87f] transition-colors w-auto"
+                      className={`block p-2 hover:text-[#202020] transition-colors ${
+                        pathname === link.href ? "text-[#202020]" : ""
+                      }`}
                       onClick={() => setIsOpen(false)}
                     >
                       {link.text}
@@ -246,7 +219,7 @@ function Navbar() {
         )}
       </motion.div>
 
-      {/* Inline styles for hover effect */}
+      {/* Inline stílus – az aláhúzás csak hover esetén jelenik meg */}
       <style jsx>{`
         li::after {
           content: "";

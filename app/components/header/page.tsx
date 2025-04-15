@@ -71,10 +71,10 @@ const Header = () => {
           <div className="py-0.5 bg-gray-500 w-full absolute bottom-0"></div>
         </div> */}
         <div className="bg-[url('/header.jpg')] bg-cover relative bg-center py-56 text-center items-center justify-center flex flex-col">
-          <div className="absolute inset-0 bg-black/30 backdrop-blur-xs"></div>
+          <div className="absolute inset-0 bg-black/40 backdrop-blur-xs"></div>
           <div className="relative z-10">
             <div className="bg-white/80 w-full absolute top-0 py-px"></div>
-            <p className="text-white text-[26px] sm:text-[45px] lg:text-[60px] font-main font-medium">
+            <p className="text-white text-[24px] sm:text-[45px] lg:text-[60px] font-main font-medium">
               Remida Kárpitos Műhely
             </p>
             <div className="bg-white/80 w-full absolute bottom-0 py-px"></div>
