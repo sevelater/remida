@@ -2,14 +2,14 @@
 
 import Header from "./components/header/page";
 import Navbar from "./components/navbar/page";
+import Footer from "./components/footer/page";
 
 export default function Home() {
   return (
     <div>
-      <div>
-        <Navbar/>
-        <Header/>
-      </div>
+      <Navbar/>
+      <Header/>
+      <Footer/>
     </div>
   );
 }

@@ -74,7 +74,7 @@ const Header = () => {
           <div className="absolute inset-0 bg-black/30 backdrop-blur-xs"></div>
           <div className="relative z-10">
             <div className="bg-white/80 w-full absolute top-0 py-px"></div>
-            <p className="text-white text-[38px] sm:text-[45px] md:text-[65px] lg:text-[60px] font-main font-medium">
+            <p className="text-white text-[26px] sm:text-[45px] lg:text-[60px] font-main font-medium">
               Remida Kárpitos Műhely
             </p>
             <div className="bg-white/80 w-full absolute bottom-0 py-px"></div>

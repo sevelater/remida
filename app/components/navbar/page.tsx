@@ -5,8 +5,12 @@ import { motion, useScroll, useMotionValueEvent } from "framer-motion";
 import Link from "next/link";
 import { usePathname } from "next/navigation";
 import { FontAwesomeIcon } from "@fortawesome/react-fontawesome";
-import { faFacebook } from "@fortawesome/free-brands-svg-icons";
-import { faEnvelope } from "@fortawesome/free-solid-svg-icons";
+import {
+  faFacebook,
+  faTiktok,
+  faYoutube,
+} from "@fortawesome/free-brands-svg-icons";
+// import { faEnvelope } from "@fortawesome/free-solid-svg-icons";
 import { links } from "../consts";
 
 function Navbar() {
@@ -51,7 +55,10 @@ function Navbar() {
 
   const hamburgerVariants = {
     visible: { y: 0, transition: { duration: 0.2, ease: "easeOut" } },
-    hidden: { y: "-100%", transition: { duration: 0.2, ease: "easeOut", delay: 0.3 } },
+    hidden: {
+      y: "-100%",
+      transition: { duration: 0.2, ease: "easeOut", delay: 0.3 },
+    },
   };
 
   return (
@@ -67,7 +74,7 @@ function Navbar() {
         className="fixed left-0 w-full z-50 justify-items-center"
       >
         {/* Desktop navbar */}
-        <div className="hidden custom:flex justify-center items-center px-6 xl:px-12 py-8 w-full rounded-md backdrop-blur-md">
+        <div className="hidden custom:flex justify-center items-center px-6 xl:px-12 py-6 w-full rounded-md backdrop-blur-md">
           <ul className="flex gap-4 xl:gap-6 items-center">
             {links.map((link) => (
               <li
@@ -81,11 +88,15 @@ function Navbar() {
                   }),
                 }}
                 onMouseEnter={(e) => {
-                  const after = e.currentTarget.querySelector("span::after") as HTMLElement;
+                  const after = e.currentTarget.querySelector(
+                    "span::after"
+                  ) as HTMLElement;
                   if (after) after.style.width = "100%";
                 }}
                 onMouseLeave={(e) => {
-                  const after = e.currentTarget.querySelector("span::after") as HTMLElement;
+                  const after = e.currentTarget.querySelector(
+                    "span::after"
+                  ) as HTMLElement;
                   if (after && pathname !== link.href) after.style.width = "0";
                 }}
               >
@@ -116,12 +127,31 @@ function Navbar() {
               </li>
             ))}
           </ul>
-          <div className="flex items-center gap-4 ml-6">
-            <a href="https://facebook.com" target="_blank" rel="noopener noreferrer">
-              <FontAwesomeIcon icon={faFacebook} className="text-white text-xl" />
+
+          {/* <div id="line" className="py-10 h-6 bg-[#c8c8c8]/50 mx-5"></div> */}
+
+          <div className="flex items-center gap-5 ml-10">
+            <a
+              href="https://facebook.com"
+              target="_blank"
+              rel="noopener noreferrer"
+            >
+              <FontAwesomeIcon
+                icon={faFacebook}
+                className="text-white text-xl ease-in-out duration-200 hover:text-blue-600"
+              />
             </a>
-            <a href="mailto:example@example.com">
-              <FontAwesomeIcon icon={faEnvelope} className="text-white text-xl" />
+            <a href="https://www.youtube.com/@remidakarpitosmuhely.7987">
+              <FontAwesomeIcon
+                icon={faYoutube}
+                className="text-white text-xl ease-in-out duration-200 hover:text-red-600"
+              />
+            </a>
+            <a href="https://www.tiktok.com/@remidabutor">
+              <FontAwesomeIcon
+                icon={faTiktok}
+                className="text-white text-xl ease-in-out duration-200 hover:text-gray-950"
+              />
             </a>
           </div>
         </div>
@@ -163,7 +193,7 @@ function Navbar() {
               ref={menuRef}
               className="fixed top-0 right-0 h-full w-64 bg-[#a08e5f] bg-opacity-30 backdrop-blur-md border-l shadow-lg flex items-center justify-center transition-all duration-300"
             >
-              <ul className="grid text-white text-md w-full text-center gap-y-8 pt-10 justify-items-center tracking-wider font-main">
+              <ul className="grid text-white text-md w-full gap-y-4 pt-10 text-center items-center tracking-wider font-main">
                 {links.map((link) => (
                   <li
                     key={link.href}
@@ -183,16 +213,33 @@ function Navbar() {
                     </Link>
                   </li>
                 ))}
-                <li>
-                  <a href="https://facebook.com" target="_blank" rel="noopener noreferrer">
-                    <FontAwesomeIcon icon={faFacebook} className="text-white text-xl hover:text-[#c5b87f]" />
+
+                <div id="line" className="py-px self-center bg-[#c8c8c8]/50 mx-10"></div>
+
+                <div className="flex justify-items-center text-center justify-center gap-x-5 mt-3">
+                  <a
+                    href="https://facebook.com"
+                    target="_blank"
+                    rel="noopener noreferrer"
+                  >
+                    <FontAwesomeIcon
+                      icon={faFacebook}
+                      className="text-white text-xl ease-in-out duration-200 hover:text-blue-600"
+                    />
                   </a>
-                </li>
-                <li>
-                  <a href="mailto:example@example.com">
-                    <FontAwesomeIcon icon={faEnvelope} className="text-white text-xl hover:text-[#c5b87f]" />
+                  <a href="https://www.youtube.com/@remidakarpitosmuhely.7987">
+                    <FontAwesomeIcon
+                      icon={faYoutube}
+                      className="text-white text-xl ease-in-out duration-200 hover:text-red-600"
+                    />
                   </a>
-                </li>
+                  <a href="https://www.tiktok.com/@remidabutor">
+                    <FontAwesomeIcon
+                      icon={faTiktok}
+                      className="text-white text-xl ease-in-out duration-200 hover:text-gray-950"
+                    />
+                  </a>
+                </div>
               </ul>
             </div>
           </div>
@@ -202,7 +249,7 @@ function Navbar() {
       {/* Inline styles for hover effect */}
       <style jsx>{`
         li::after {
-          content: '';
+          content: "";
           position: absolute;
           bottom: 0;
           left: 50%;

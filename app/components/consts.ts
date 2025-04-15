@@ -1,5 +1,5 @@
 export const links = [
-    { href: "#home", text: "Kezdőlap" },
+    { href: "#", text: "Kezdőlap" },
     { href: "#services", text: "Referencia" },
     { href: "#embroidery", text: "Gépi hímzés" },
     { href: "#double_beds", text: "Francia ágyak" },
