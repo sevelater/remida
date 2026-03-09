@@ -1,17 +1,12 @@
-"use client"
+﻿import type { Metadata } from "next";
+import LandingPage from "@/components/home/landing-page";
 
-import Header from "./components/header/page";
-import Navbar from "./components/navbar/page";
-import Slider from "./components/slider/page"
-import Footer from "./components/footer/page";
+export const metadata: Metadata = {
+  title: "Kovasz Muhely | Főoldal",
+  description: "Modern bakery workshop élmény, inspiráló csapat és gyakorlati oktatás.",
+};
 
-export default function Home() {
-  return (
-    <div>
-      <Navbar/>
-      <Header/>
-      <Slider/>
-      <Footer/>
-    </div>
-  );
+export default function HomePage() {
+  return <LandingPage />;
 }
+
